@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script>
+        $(document).on('ready',function(){
+        $('#buttonSend').click(function(){
+            var url = "www.rikardo.me/ciencia/insert";                                      
 
+            $.ajax({                        
+            type: "POST",                 
+            url: url,                    
+            data: $("#formulario").serialize(),
+            success: function(data)            
+            {
+                $('#resultados').html(data);           
+            }
+            });
+        });
+        });
+    </script>
+</head>
+<body>
+    <form action="" method="post" id="formulario">
+        <label for="">Identificador: </label>
+        <input type="number" name="" id="" value="1024">
+
+        <label for="">Nombre: </label>
+        <input type="text" name="nombre" id="" value="Jesus Antonio Villanueva Cruz">
+
+        <label for="">Número de control: </label>
+        <input type="text" name="numControl" id="" value="12161435">
+
+        <label for="">Origen: </label>
+        <input type="text" name="textOrigen" id="" value="prueba de origen">
+
+        <input type="button" value="enviar" id="buttonSend">
+    </form>
+
+    <div id="resultados"></div>
+</body>
+</html>
